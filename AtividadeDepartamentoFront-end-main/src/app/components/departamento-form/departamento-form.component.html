@@ -1,0 +1,24 @@
+<p-toast></p-toast>
+
+<div class="card">
+  <h2>{{ id ? 'Editar Departamento' : 'Novo Departamento' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="salvar()">
+    <div class="p-fluid">
+      <div class="field">
+        <label for="nome">Nome</label>
+        <input id="nome" pInputText formControlName="nome" />
+      </div>
+
+      <div class="field">
+        <label for="sigla">Sigla</label>
+        <input id="sigla" pInputText formControlName="sigla" />
+      </div>
+    </div>
+
+    <button pButton type="submit" label="Salvar" icon="pi pi-check"
+            [disabled]="form.invalid"></button>
+    <button pButton type="button" label="Cancelar" class="p-button-secondary ml-2"
+            icon="pi pi-times" routerLink="/departamentos"></button>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+<p-toast></p-toast>
+
+<div class="card">
+  <div class="flex justify-between items-center mb-3">
+    <h2>Departamentos</h2>
+    <button pButton label="Novo Departamento" icon="pi pi-plus" routerLink="/departamentos/novo"></button>
+  </div>
+
+  <p-table [value]="departamentos" [loading]="loading">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sigla</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-dep>
+      <tr>
+        <td>{{ dep.id }}</td>
+        <td>{{ dep.nome }}</td>
+        <td>{{ dep.sigla }}</td>
+        <td>
+          <p-tag [value]="dep.ativo ? 'Ativo' : 'Inativo'"
+                 [severity]="dep.ativo ? 'success' : 'danger'"></p-tag>
+        </td>
+        <td>
+          <button pButton icon="pi pi-pencil" class="p-button-text p-button-sm"
+                  [routerLink]="['/departamentos/editar', dep.id]"></button>
+          <button pButton icon="pi pi-ban" class="p-button-text p-button-danger p-button-sm"
+                  (click)="inativar(dep)" [disabled]="!dep.ativo"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

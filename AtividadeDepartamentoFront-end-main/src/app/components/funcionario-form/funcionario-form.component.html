@@ -1,0 +1,80 @@
+<div class="card p-5 border-round-2xl shadow-3 surface-card w-full md:w-8 mx-auto">
+  <h2 class="mb-5 text-2xl font-semibold text-center">
+    {{ formFuncionario.value.id ? 'Editar Funcionário' : 'Novo Funcionário' }}
+  </h2>
+
+  <form [formGroup]="formFuncionario" (ngSubmit)="submit()" class="p-fluid grid formgrid gap-4">
+
+    <!-- Nome -->
+    <div class="field col-12 md:col-6">
+      <label for="nome" class="font-medium mb-1 block">Nome</label>
+      <input id="nome" type="text" pInputText formControlName="nome" placeholder="Digite o nome completo" />
+    </div>
+
+    <!-- Email -->
+    <div class="field col-12 md:col-6">
+      <label for="email" class="font-medium mb-1 block">Email</label>
+      <input id="email" type="email" pInputText formControlName="email" placeholder="exemplo@email.com" />
+    </div>
+
+    <!-- Cargo -->
+    <div class="field col-12 md:col-6">
+      <label for="cargo" class="font-medium mb-1 block">Cargo</label>
+      <input id="cargo" type="text" pInputText formControlName="cargo" placeholder="Ex: Analista de Sistemas" />
+    </div>
+
+    <!-- Salário -->
+    <div class="field col-12 md:col-6">
+      <label for="salario" class="font-medium mb-1 block">Salário</label>
+      <input id="salario" type="number" pInputText formControlName="salario" placeholder="3500.00" />
+    </div>
+
+    <!-- Data de Admissão -->
+    <div class="field col-12 md:col-6">
+      <label for="dataAdmissao" class="font-medium mb-1 block">Data de Admissão</label>
+      <input id="dataAdmissao" type="date" pInputText formControlName="dataAdmissao" />
+    </div>
+
+    <!-- Departamento (AutoComplete com dropdown) -->
+    <div class="field col-12 md:col-6">
+      <label for="departamento" class="font-medium mb-1 block">Departamento</label>
+      <p-autocomplete
+        inputId="departamento"
+        formControlName="departamento"
+        [suggestions]="filteredDepartamentos"
+        (completeMethod)="filtrarDepartamentos($event)"
+        optionLabel="nome"
+        [dropdown]="true"
+        placeholder="Selecione ou busque um departamento"
+        class="w-full"
+      ></p-autocomplete>
+    </div>
+
+    <!-- Ativo -->
+    <div class="col-12 flex align-items-center gap-2 mt-3">
+      <p-checkbox formControlName="ativo" inputId="ativo" binary="true"></p-checkbox>
+      <label for="ativo">Ativo</label>
+    </div>
+
+    <!-- Botões -->
+    <div class="col-12 mt-5 flex justify-content-center gap-3">
+      <button
+        type="submit"
+        [disabled]="formFuncionario.invalid"
+        style="padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #4caf50; background-color: #4caf50; color: white; font-weight: 500; cursor: pointer;"
+      >
+        <i class="pi pi-check" style="margin-right: 0.5rem;"></i>
+        Salvar
+      </button>
+
+      <button
+        type="button"
+        (click)="router.navigate(['/'])"
+        style="padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #9e9e9e; background-color: #e0e0e0; color: black; font-weight: 500; cursor: pointer;"
+      >
+        <i class="pi pi-times" style="margin-right: 0.5rem;"></i>
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
