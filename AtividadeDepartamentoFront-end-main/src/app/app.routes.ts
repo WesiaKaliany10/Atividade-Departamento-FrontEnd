@@ -4,6 +4,7 @@ import {FuncionarioFormComponent} from './components/funcionario-form/funcionari
 import {DepartamentoListComponent} from './components/departamento-list/departamento-list.component';
 import {DepartamentoFormComponent} from './components/departamento-form/departamento-form.component';
 
+
 export const routes: Routes = [
   { path: '',
     component: FuncionarioListComponent,
@@ -27,6 +28,7 @@ export const routes: Routes = [
 
   { path: 'departamentos/editar/:id',
     component: DepartamentoFormComponent
+
   },
 
 

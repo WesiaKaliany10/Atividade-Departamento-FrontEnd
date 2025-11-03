@@ -7,11 +7,12 @@ import { InputText } from 'primeng/inputtext';
 import { Button } from 'primeng/button';
 import { Checkbox } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
+import {HeaderComponent} from '../../header/header.component';
 
 @Component({
   selector: 'app-funcionario-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, AutoComplete, InputText, Checkbox],
+  imports: [CommonModule, ReactiveFormsModule, AutoComplete, InputText, Checkbox, HeaderComponent],
   templateUrl: './funcionario-form.component.html',
   styleUrls: ['./funcionario-form.component.scss']
 })

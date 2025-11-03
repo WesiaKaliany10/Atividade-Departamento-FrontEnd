@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {Funcionario} from '../../models/Funcionario';
 import {FormsModule} from '@angular/forms';
 import {CurrencyPipe, DatePipe, NgClass} from '@angular/common';
+import {HeaderComponent} from '../../header/header.component';
 
 
 @Component({

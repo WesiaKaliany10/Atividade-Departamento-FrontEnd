@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 import {DepartamentoService} from '../../services/departamento/departamento-service';
 import {Departamento} from '../../models/Departamento';
 import {Toast} from 'primeng/toast';
+import {HeaderComponent} from '../../header/header.component';
 
 
 @Component({
@@ -12,7 +13,7 @@ import {Toast} from 'primeng/toast';
   templateUrl: './departamento-form.component.html',
   imports: [
     Toast,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   styleUrl: './departamento-form.component.scss',
   providers: [MessageService]
